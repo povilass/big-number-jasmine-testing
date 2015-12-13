@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>lt.jasmine.testing</groupId>
+    <artifactId>big-number-jasmine-testing</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.github.searls</groupId>
+                <artifactId>jasmine-maven-plugin</artifactId>
+                <version>1.3.1.6</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>test</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+
+
+                    <additionalContexts>
+                        <context>
+                            <contextRoot>lib</contextRoot>
+                            <directory>${project.basedir}/src/main/webapp/lib</directory>
+                        </context>
+                        <context>
+                            <contextRoot>app</contextRoot>
+                            <directory>${project.basedir}/src/main/webapp/app</directory>
+                        </context>
+                        <context>
+                            <contextRoot>misc</contextRoot>
+                            <directory>${project.basedir}/src/main/webapp/misc</directory>
+                        </context>
+                        <context>
+                            <contextRoot>testConfig</contextRoot>
+                            <directory>${project.basedir}/src/test/javascript/configuration</directory>
+                        </context>
+                        <context>
+                            <contextRoot>testExecution</contextRoot>
+                            <directory>${project.basedir}/src/test/javascript/jasmine</directory>
+                        </context>
+                    </additionalContexts>
+
+                    <specRunnerTemplate>REQUIRE_JS</specRunnerTemplate>
+                    <preloadSources>
+                        <source>lib/require.js</source>
+                        <source>testConfig/required-config.js</source>
+                    </preloadSources>
+
+                    <jsSrcDir>${project.basedir}/src/main/webapp/lib</jsSrcDir>
+                    <jsTestSrcDir>${project.basedir}/src/test/javascript/jasmine</jsTestSrcDir>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+
+
+</project>
